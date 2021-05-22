@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header card-header-primary">
+                    <h1 class="card-title mt-0">Đơn hàng bạn đã đặt</h1>
+                   
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="">
+                                <th>
+                                    Tên nhà cung cấp dịch
+                                </th>
+                                <th>
+                                    Dịch vụ
+                                </th>
+                                <th>
+                                    Loại
+                                </th>
+                                <th>
+                                    Số lượng người
+                                </th>
+                                <th>
+                                    Thời gian nhận
+                                </th>
+                                <th>
+                                    Chú thích
+                                </th>
+                                <th>
+                                    Trạng thái
+                                </th>
+                              
+                            </thead>
+                            <tbody>
+                                <% @cart.each do |cart| %>                                   
+                               
+                                   <tr>
+                                    <td><%= cart.name%></td>
+                                    <td><%= cart.tendanhmuc%></td>
+                                    <td><%= cart.type_book%></td>
+                                    <td><%= cart.amount%></td>
+                                    <td><%= cart.time%></td>
+                                    <td><%= cart.note%></td>
+                                    <% if (cart.activation == '-1') %>
+                                      <td> <i class='fa fa-close' style='color:red;margin-left:25px'></i> </td>
+                                   <% elsif (cart.activation == '0')%>
+                                     <td><i class='fa fa-ellipsis-h' style='margin-left:25px;color:purple'></i> </td>
+                                 <%  else%>
+                                       <td><i class='fa fa-check-square' style='margin-left:25px;color:green'></i> </td>
+                                <%  end %>                                
+                                   
+                                   <tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Edit Modal HTML -->
+        <div id="editEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="update_form">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Chỉnh sửa đơn hàng</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" id="id_u" name="id" class="form-control" required>
+                            <div class="form-group">
+                                <label>Số lượng người </label>
+                                <input type="text" id="amount_u" name="amount" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Thời gian</label>
+                                <input type="datetime-local" id="time_u" name="time" class="form-control"  required>
+                            </div>
+                            <div class="form-group">
+                                <label>Chú thích</label>
+                                <input type="text" id="note_u" name="note" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" value="2" name="type">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <button type="button" class="btn btn-info" id="update">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

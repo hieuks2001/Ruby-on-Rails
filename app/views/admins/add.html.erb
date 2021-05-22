@@ -1,0 +1,128 @@
+<div class="container">
+
+<% if (params[:page] =='0' )%>
+    <!-- Thêm danh mục -->
+    <div class="container-fluid">
+        <div class="container" style="margin-bottom: 30px">
+
+            <div>    <%= flash[:danger] %></div>
+            <form class="form-horizontal" autocomplete="off" method="get">
+                <div class="text-info">Tên danh mục</div> <input type="text" name="tendanhmuc" value="<%= params[:tendanhmuc] %>">
+                <input type="submit" name="adddm" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+<% elsif (params[:page] =='1' )%>
+    <!-- Thêm địa điểm  -->
+    <div class="container-fluid">
+        <div class="container" style="margin-bottom: 30px">
+            <div>    <%= flash[:danger] %></div>
+
+            <form class="form-horizontal" autocomplete="off" method="get" action="add" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Tên địa điểm:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" name="tendd" value="<%= params[:tendd] %>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Tỉnh thành:</label>
+                    <div class="col-lg-8">
+                        <select name="nametinh" class="form-control" style='color:green;'>
+                            <% @tinh.each do |tinh| %>   
+                                <option value="<%= tinh.namecity%>"><%= tinh.namecity%></option>
+                           <% end %>
+                        </select><br>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label class="col-md-3 control-label">Ảnh sản phẩm:</label>
+                    <div class="col-md-8">
+                        <input type="file" name="avatar " class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Mô tả:</label>
+                    <div class="col-md-8">
+                        <textarea name="motadd" style="width:300px;"></textarea>
+                        <script>
+                            CKEDITOR.replace('motadd');
+                        </script>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+<% else %>
+    <div>    <%= flash[:danger] %></div>
+    
+    <div class="container" style="border:2px solid #000;  border-radius:4px ">
+
+        <form class="form-horizontal" autocomplete="off" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Tên :</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" name="tenmathang" value="<?php echo $row1[1]?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Số lượng phòng (Bàn ) :</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="number" name="soluong" value="<?php echo $row1[2]?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Danh mục:</label>
+                <div class="col-md-8">
+                    <select name="iddanhmuc" class="form-control" style='color:green;'>
+                        <% @danhmuc.each do |dm| %>
+                            <option value="<%= dm.tendanhmuc%>"><%= dm.tendanhmuc%></option>
+                       <% end %>
+                    </select>
+                    <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Giá thành(theo ngày) :</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="number" name="dongia" placeholder="VD : 500,100,150... Nhà hàng, quán ăn có thể bỏ qua" value="<?php echo $row1[4]?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Địa điểm:</label>
+                <div class="col-lg-8">
+                    <select name="iddiadiem" class="form-control" style='color:green;'>
+                         <% @diadiem.each do |dd| %>   
+                                <option value="<%= dd.nametinh%>"><%= dd.nametinh%></option>
+                           <% end %>
+                    </select><br>
+                </div>
+            </div>
+            <div class="">
+                <label class="col-md-3 control-label">Ảnh sản phẩm:</label>
+                <div class="col-md-8">
+                    <input type="file" name="avatar[]" multiple="true" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Mô tả:</label>
+                <div class="">
+                    <textarea name="mota" style="width:800px;"><?php echo $row1[5]?></textarea>
+                    <script>
+                        CKEDITOR.replace('mota');
+                    </script>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-md-4">
+                    <button type="submit" name="addsp" class="btn btn-success" style="font-size:20px;">Thêm hàng hóa</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+<% end %>
+    </div>

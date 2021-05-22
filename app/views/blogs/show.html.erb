@@ -1,0 +1,119 @@
+<!--================Blog Area =================-->
+<section class="blog_area single-post-area section-padding" style="background-color:#8fffc60d;">
+    <div class="container">
+        <div class="row">
+           
+
+<div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+
+                    <% @blogs.each do |blog| %>   
+                       
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="rounded-0" src="    img/blog/<%= blog.img%>" width="89%" alt="">
+                                <a href="#" class="blog_item_date">
+                                    <h3><%= blog.time.strftime("%d")%></h3>
+                                    <p>Tháng <%= blog.time.strftime("%m")%></p>
+                                    <h4 style="color:#fff;"><%= blog.time.strftime("%Y")%></h4>
+                                </a>
+                            </div>
+
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="/Single/<%= blog.id%>">
+                                    <h2><%= blog.title%></h2>
+                                </a>
+                                <p><%= blog.preamble%>
+                                </p>
+                                <ul class="blog-info-link">
+                                    <li><a href="#"><i class="fa fa-user"></i><%= blog.username%></a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Bình luận</a></li>
+                                </ul>
+                            </div>
+                   <% end %>    
+                <div class="apple_pagination">                    
+                       
+                        <%= will_paginate @blogs, :container => false %>
+                </div>
+                </div>
+</div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                    <form class="billing-form panel" action="./Home/Blog" method="post"  enctype="multipart/form-data"> 
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="timkiem" style="color: #000;" placeholder='Search Keyword'>
+                                    <div class="input-group-append">
+                                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Tìm Kiếm</button>
+                        </form>
+                    </aside>
+
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">Phân Loại</h4>
+                        <ul class="list cat-list">
+                            <% @tagblogs.each do |tag| %>   
+
+                                <li>
+                                    <a href="./Home/blog?idtag=<%= tag.name%>" class="d-flex">
+                                        <p><%= tag.name%></p>
+                                    </a>
+                                </li>
+                          <% end %>   
+                        </ul>
+                    </aside>
+
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Bài Viết Gần Đây</h3>
+                          <% @blogs.each do |blog| %>   
+                            <div class="media post_item">
+                                <img src="img/blog/<%= blog.img%>" width="40%" alt="post">
+                                <div class="media-body">
+                                <a class="d-inline-block" href="./Home/SingleBlog?idblog=<%= blog.id %>">
+                                        <h4><%= blog.title%></h4>
+                                    </a>
+                                    <p><%= blog.time.strftime("%d-%m-%Y")%></p>
+                                </div>
+                            </div>
+                       <% end %>   
+
+                    </aside>
+                    <aside class="single_sidebar_widget tag_cloud_widget">
+                        <h4 class="widget_title">Hot Search</h4>
+                        <ul class="list">
+                            <li>
+                                <a href="#">#TayBac</a>
+                            </li>
+                            <li>
+                                <a href="#">#Sapa</a>
+                            </li>
+                            <li>
+                                <a href="#">#Homestay</a>
+                            </li>
+                            <li>
+                                <a href="#">#Langson</a>
+                            </li>
+                            <li>
+                                <a href="#">#Thacnuoc</a>
+                            </li>
+                            <li>
+                                <a href="#">#Thittraugacbep</a>
+                            </li>
+                            <li>
+                                <a href="#">#LaoCai</a>
+                            </li>
+                            <li>
+                                <a href="#">#NhaSan</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->

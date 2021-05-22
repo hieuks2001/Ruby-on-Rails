@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= flash[:danger] %>
+
+  <body
+    class="
+      push-body
+      html
+      not-front not-logged-in
+      no-sidebars
+      page-user page-user-register
+    "
+  >
+    <div id="main">
+      <div id="main_inner">
+        <div
+          id="block-system-main"
+          class="block block-system block-odd first last clearfix"
+        >
+          <div class="" style="border:1px solid #000; padding:15px; background-color:#fff; border-radius:10px; ">
+
+            <%= form_for @user, html: {class:" billing-form panel" } do |f| %>
+          
+              <h2 style="text-align: center">Điền thông tin</h2>
+                 <div class="col-md-12">
+                  <div class="form-group">
+                  <%= f.label :name,"Tên đăng nhập"%>
+                    <%= f.text_field :username, class:"form-control
+                    required" , placeholder:" Nhập tên tài khoản" %>
+                  </div>
+                </div>               
+                <div class="col-md-12">
+                  <div class="form-group">
+                  <%= f.label :email," Email" %>
+                    <%= f.text_field :email, class:"form-control
+                    required" , placeholder:" Nhập Email" %>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                  <%= f.label :password," Password" %>
+                    <%= f.password_field :password, class:"form-control
+                    required" , placeholder:" Nhập mật khẩu" %>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                  <%= f.label :password_confirmation," Password Confirmation" %>                
+                    <%= f.password_field :password_confirmation, class:"form-control" , placeholder:"Nhập lại mật khẩu" %>
+                  </div>
+                </div>            
+                <%= f.submit"Đăng Ký" ,class:"btn btn-primary"%>
+         
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render"users/footer" %>
+  </body>
+</html>

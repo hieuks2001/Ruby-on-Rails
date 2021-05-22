@@ -1,0 +1,190 @@
+
+
+<div class="popular_places_area">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3">
+    <div class="filter_result_wrap">
+        <h3 style="font-size: 3em;">Tìm kiếm</h3>
+        <form class="form-group" autocomplete="off" method="GET" enctype="multipart/form-data">
+            <div class="filter_inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="single_select">
+                            <select style="font-size: 2em;" name="iddm">
+                                   <option value="" >Tất cả</option>                               
+
+                               <% @danhmucs.each do |dm| %>   
+                                   <option value="<%= dm.tendanhmuc%>" ><%= dm.tendanhmuc %></option>                               
+                              <% end %>    
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <input type="text" name="name"  class="form-control" placeholder="Tên nhà hàng, khách sạn cần tìm">
+                    </div>
+                    <div class="col-lg-12" style="margin-top:15px">
+                        
+                    </div>
+                    <div class="col-lg-12">
+                        <input type="text" name="price"  class="form-control" placeholder="Tầm giá tiền...">
+                    </div>
+                </div>
+            </div> <br>
+            <button type="submit" class="boxed-btn4">Tìm kiếm </button>
+        </form>
+
+    </div>
+</div>
+<div class="col-lg-9">
+    <div class="row">
+        <% @hanghoa.each do |hanghoa| %>   
+            <div class="col-md-4 ftco-animate">
+                <div class="single_place">
+                    <div class="thumb">
+                      
+                      <img src="/img/place/<%= hanghoa.anh %>" class="" style="width:250px; height:150px" alt="<%= hanghoa.tenmathang%>">
+                     
+                    </div>
+                    <div class="place_info">
+                        <div class="">                           
+                           <a href="./Places/thongtin/<%= hanghoa.tenmathang%>?id=<%= hanghoa.id%>"><h3><%= hanghoa.tenmathang%></h3></a>  <br>
+                            <div class="two">
+                                <br>
+                              <%  if (hanghoa.dongia == 0) %>
+                                 <span class="price" style="color:rgba(49, 221, 49,1); font-weight:900">Liên hệ!</span>
+        
+                           <% else %>                           
+                         
+                              <span class="price" style="color:rgba(49, 221, 49,1); font-weight:900">  <%=number_to_currency(hanghoa.dongia,precision:0) %> VNĐ / days</span>
+                             
+                           <% end %>    
+                              
+                            </div>
+                        </div>
+                        <p> Đ/c : <%= hanghoa.address%>  </p>
+                        <hr>
+                        <p class="days">
+                           <% if session[:user_id] %>           
+                               <label><a href="/Cart/<%= hanghoa.id%>">Đặt ngay</a></label>
+                           <% else %>                           
+                                <label id="show">Login to book!</label>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% end %>    
+
+    </div>
+    <div class="row mt-5">
+        <div class="col text-center">
+            <div class="block-27">
+                <div class="apple_pagination">                      
+                       
+                        <%= will_paginate @hanghoa, :container => false %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- newletter_area_start  -->
+<div class="newletter_area overlay">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="newsletter_text">
+                            <h4>Subscribe Our Newsletter</h4>
+                            <p>Subscribe newsletter to get offers and about
+                                new places to discover.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mail_form">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="newsletter_field">
+                                        <input type="email" placeholder="Your mail">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="newsletter_btn">
+                                        <button class="boxed-btn4 " type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog in here -->
+<div class="recent_trip_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb_70">
+                    <h3>Blog gần đây</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/img/trip/3.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>July 12, 2020</span>
+                        </div>
+                        <a href="single-blog.html">
+                            <h3>Cuộc sống của người dân Tây Bắc như thế nào?</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/img/trip/2.jpg" alt="" style=" height: 233px;">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>Oct 12, 2019</span>
+                        </div>
+                        <a href="single-blog.html">
+                            <h3>Mùa gặt lúa trên Mù Cang Chải</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/img/trip/8.png" style="height: 233px;">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>Oct 12, 2019</span>
+                        </div>
+                        <a href="single-blog.html">
+                            <h3>Tour du lịch trên thuyền Hồ Thác Bà 3 ngày 2 đêm</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <%= stylesheet_link_tag 'materialdashboard' %>
+    <%= stylesheet_link_tag 'fontawesome' %>
+    <%= javascript_pack_tag 'admin'%>
+
+  </head>
+  <body class="dark-edition">   
+<%= render "admins/header" %>
+  <div class="content">
+        <div class="container-fluid">
+    <%= yield %>
+  </div>
+      </div>
+  </body>
+</html>

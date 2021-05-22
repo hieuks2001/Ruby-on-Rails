@@ -1,0 +1,125 @@
+<!-- ================ contact section start ================= -->
+<section class="contact-section">
+    <div class="container">
+        <div class="d-none d-sm-block mb-5 pb-4">
+            <div id="map" style="height: 480px; position: relative; overflow: hidden;"> </div>
+            <script>
+                function initMap() {
+                    var uluru = {
+                        lat: 15.9787563,
+                        lng: 108.2489989
+                    };
+                    var grayStyles = [{
+                            featureType: "all",
+                            stylers: [{
+                                    saturation: -90
+                                },
+                                {
+                                    lightness: 50
+                                }
+                            ]
+                        },
+                        {
+                            elementType: 'labels.text.fill',
+                            stylers: [{
+                                color: '#ccdee9'
+                            }]
+                        }
+                    ];
+                    var maps = new google.maps.Map(document.getElementById('map'), {
+                        center: {
+                            lat: 15.9787563,
+                            lng: 108.2489989
+                        },
+                        zoom: 16,
+                        styles: grayStyles,
+                        scrollwheel: false
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: maps,
+                        title: "Lords Cricket Ground, London!"
+                    });
+
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
+            </script>
+
+        </div>
+
+        <div class="">
+             <%= flash[:danger] %>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Bạn muốn nói với chúng tôi điều gì?</h2>
+            </div>
+            <div class="col-lg-8">
+        
+            <%= form_for @binhluans,html: {class:"form-group",style:"font-size:30px"} do |f| %>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <%= f.text_area :noidung, class:"form-control required" , placeholder:" Nhập phản hồi",size:"30x9" %>
+                            </div>
+                        </div>
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                                 <%= f.text_field :iduser, class:"form-control required" , value:@users.id ,hidden:"true"%>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                 <%= f.text_field :username, class:"form-control required" , placeholder:" Nhập họ tên của bạn",value:@users.fullname  %>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <%= f.email_field :emailfb, class:"form-control required" , placeholder:" Nhập Email",value:@users.email %>
+                            </div>
+                        </div>
+                         <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.text_field :typecmt, class:"form-control required" , value:"feedback",hidden:"true" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.text_field :activation, class:"form-control required" , value:"0",hidden:"true" %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                           <%= f.submit"Gửi" ,class:"btn btn-success",style:"font-size:18px"%>
+                    </div>
+            <% end %>
+
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="fa fa-home"></i></span>
+                    <div class="media-body">
+                        <h3>TP Đà Nẵng</h3>
+                        <p>87 Nguyễn Đình Hiến - P. Hòa Quý - Q. NGũ Hành Sơn</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="fa fa-tablet"></i></span>
+                    <div class="media-body">
+                        <h3>+84 3535 90632</h3>
+                        <p>24/7</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="fa fa-envelope"></i></span>
+                    <div class="media-body">
+                        <h3>vdhieu.19it1@vku.udn.vn</h3>
+                        <p>Liên hệ quảng cáo!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ contact section end ================= -->

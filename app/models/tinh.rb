@@ -1,0 +1,2 @@
+class Tinh < ApplicationRecord
+end

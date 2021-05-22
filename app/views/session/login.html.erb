@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%= flash[:danger] %>
+
+        <body class="push-body html not-front not-logged-in no-sidebars page-user">
+           
+
+            <div class="container">
+                <div class="row">
+                    <div id="user_login" class="box-content col-lg-12" style="
+            border: 1px solid #000;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px; 
+            margin-top: 70px;
+          ">
+                        <h1 class="col-lg-12" style="text-align: center">
+                            Đăng nhập tài khoản
+                        </h1>
+                        <%= form_for :session, url: login_path,html: {id: "user-login" } do |f| %>
+                            <label class="col-lg-12" style="text-align: center">
+                                <%= f.label :username %>
+                            </label>
+
+                            <%= f.text_field :name, placeholder: "Enter your name" ,
+                                class: "form-text required col-lg-12" , style:"text-align: center" %>
+
+                                <label class="col-lg-12" style="text-align: center">
+                                    <%= f.label :password %>
+                                </label>
+                                <div class="col-lg-12" style="text-align: center">
+                                    <%= f.password_field :password, placeholder: "Enter your password" ,
+                                        class: "form-text required col-lg-12" , style:"text-align:
+                                        center",id:"edit-pass" %>
+                                </div>
+                                <br />
+                                <div class="col-lg-12" style="text-align: center">
+                                    <button type="submit" class="btn btn-primary" style="font-size: 20px"
+                                        name="dangnhap">
+                                        Đăng nhập</button><br />
+                                    <a href="./register">Click vào đây để đăng ký</a>
+                                </div>
+                                <% end %>
+
+                    <hr />
+                    </div>
+                </div>
+            </div>
+        </body>
+
+</html>

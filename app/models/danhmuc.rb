@@ -1,0 +1,2 @@
+class Danhmuc < ApplicationRecord
+end

@@ -1,0 +1,162 @@
+<div class="row">
+   <% if @users.role == "admin"%>   
+    <div class="col-md-12">
+      <div class="card card-plain">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title mt-0">Bảng danh mục</h4>
+          <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <th>
+                  ID
+                </th>
+                <th>
+                  Tên danh mục
+                </th>
+                <th>
+                  Sửa
+                </th>
+                <th>
+                  Xóa
+                </th>
+              </thead>
+              <tbody>
+               <% @danhmuc.each do |dm| %>   
+                 <tr>
+                  <td><%= dm.iddanhmuc%></td>
+                  <td><%= dm.tendanhmuc%></td>
+                  <td><a href="">Sửa</a></td>
+                  <td><button type="button" class="btn btn-danger btn-sm delete" data-id="<%= dm.iddanhmuc%>" data-type="danhmuc">Xóa</button></td>
+                 <tr>
+              <% end %>
+              </tbody>
+            </table>
+            <a class="btn btn-success" href="/Admin/product/0">Thêm danh mục</a>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+
+    <div class="col-md-12">
+      <div class="card card-plain">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title mt-0">Bảng địa điểm</h4>
+          <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <th>
+                  ID
+                </th>
+                <th>
+                  Tên địa điểm
+                </th>
+                <th>
+                  Thuộc tỉnh
+                </th>
+                <th>
+                  Ảnh
+                </th>
+                <th>
+                  Mô tả
+                </th>
+                <th>
+                  Sửa
+                </th>
+                <th>
+                  Xóa
+                </th>
+              </thead>
+              <tbody>
+            <% @diadiems.each do |diadiem| %>   
+
+                 <tr>
+                  <td><%= diadiem.id%></td>
+                  <td><%= diadiem.name%></td>
+                  <td><%= diadiem.nametinh%></td>
+                  <td><img class="" src="/img/place/<%= diadiem.anh%>" style="width:20%;"\></td>
+                  <td><%= diadiem.motadd%></td>
+                  <td><a href="">Sửa</a></td>
+                  <td><button type="button" class="btn btn-danger btn-sm delete" data-id="<%= diadiem.id%>" data-type="diadiem">Xóa</button></td>
+                 <tr>
+              <% end %>
+              </tbody>
+            </table>
+            <a class="btn btn-success" href="/Admin/product/1">Thêm địa điểm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-md-12">
+    <div class="card card-plain">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title mt-0">Bảng quản lý quảng cáo</h4>
+        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="">
+              <th>
+                ID
+              </th>
+              <th>
+                Tên mặt hàng
+              </th>
+              <th>
+                  Ảnh
+                </th>
+              <th>
+                Thuộc địa điểm
+              </th>
+              <th>
+                Số lượng
+              </th>
+              <th>
+                Giá cả
+              </th>
+              <th>
+                Mô tả
+              </th>
+              <th>
+                Sửa
+              </th>
+              <th>
+                Xóa
+              </th>
+            </thead>
+            <tbody>
+             <% @hanghoa.each do |hanghoa| %>   
+               <tr>
+                <td><%= hanghoa.id%></td>
+                <td><%= hanghoa.tenmathang%></td>
+                <td><img class="" src="/img/place/<%= hanghoa.anh%>" style="width:20%;"\></td>
+                <td><%= hanghoa.tendanhmuc%></td>
+                <td><%= hanghoa.soluong%></td>
+                <td><%= hanghoa.dongia%></td>
+                <td><i class="material-icons update" title="Đọc nội dung">read_more</i></a></td>
+                <td><a href="">Sửa</a> </td>
+                <td><button type="button" class="btn btn-danger btn-sm delete" data-id="<%= hanghoa.id%>" data-type="hanghoa">Xóa</button></td>
+               <tr>
+              <% end %>
+            </tbody>
+          </table>
+            <% if @users.role == "admin"%>  
+            <a class="btn btn-success" href="">Thêm hàng hóa</a>
+         <% else %>
+            <a class="btn btn-success" href="">Thêm hàng hóa</a>
+        <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

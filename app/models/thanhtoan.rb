@@ -1,0 +1,2 @@
+class Thanhtoan < ApplicationRecord
+end

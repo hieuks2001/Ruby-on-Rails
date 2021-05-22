@@ -1,0 +1,2 @@
+class Tagblog < ApplicationRecord
+end

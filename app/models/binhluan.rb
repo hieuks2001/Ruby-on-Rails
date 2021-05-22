@@ -1,0 +1,2 @@
+class Binhluan < ApplicationRecord
+end

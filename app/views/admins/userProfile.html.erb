@@ -1,0 +1,48 @@
+<div class="col-md-12">
+              <div class="card card-plain">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title mt-0">Bảng người dùng</h4>
+                  <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Tên đăng nhập
+                        </th>
+                        <th>
+                          Email
+                        </th>                        
+                        <th>
+                          Tên đầy đủ
+                        </th>
+                        <th>
+                          Quyền
+                        </th>                       
+                        <th>
+                          Xóa
+                        </th>
+                      </thead>
+                      <tbody>
+                     <% @user.each do |users| %>   
+
+                          <tr>
+                          <td><%= users.id%></td>
+                          <td><%= users.username%></td>
+                          <td> <%= users.email%></td>
+                          <td><%= users.fullname%></td>
+                          <td><%= users.role%></td> 
+                          <td><button type="button" class="btn btn-danger btn-sm delete" data-id="<%= users.id%>" remote="true" data-type="user">Xóa</button></td>
+                          <tr>
+                       <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+<a class="btn btn-success" href="/register" >Thêm</a>

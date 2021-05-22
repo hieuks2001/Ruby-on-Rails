@@ -1,0 +1,58 @@
+<script type="text/javascript">
+    function processForm() {
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        $.post("mvc/models/xuliphp", {
+            foton: $('input:checkbox:checked').val()
+        }, function(result) {
+            $c = "checked";
+        });
+
+    }
+</script>
+
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title mt-0">Bảng phản hồi</h4>
+
+            <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover" style="font-size: 12px;">
+                    <thead class="">
+                        <th>
+                            Tên người dùng
+                        </th>
+                        <th>
+                            Nội dung
+                        </th>
+                        <th>
+                            Trạng thái
+                        </th>
+                        <th>
+                            Xóa
+                        </th>
+                    </thead>
+                    <tbody>
+                         <% @feedback.each do |fb| %>   
+                      <tr>
+                           <td><%= fb.username%></td>
+                           <td><%= fb.noidung%></td>                       
+                           <% if (fb.activation == '-1') %>
+                                <td><button type="button" class="btn btn-danger btn-sm delete" data-id="<%= fb.id%>" data-type="feedback">Xóa</button></td>
+                            <% elsif (fb.activation == '0')%>
+                                <td><button type="button" style="size:12px" class="btn btn-info btn-sm edit" data-id="<%= fb.id%>" data-type="feedback">Đang chờ</button>  </td>                                         
+                            <%  else %>
+                                      <td><button type="button" class="btn btn-success btn-sm accept" data-id="<%= fb.id%>" data-type="feedback">Chấp nhận</button></td>
+                            <%  end %>   
+                            <td><button type="button" class="btn btn-danger btn-sm delete" data-id="<%= fb.id%>" data-type="feedback">Xóa</button></td>
+                            <tr>
+                       <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="py-1 bg-warmning">
+        <div class="container">
+            <div class="row no-gutters d-flex align-items-start
+                align-items-center px-md-0">
+                <div class="col-lg-12 d-block">
+                    <div class="row d-flex">
+                        <div class="col-md-2 pr-6 d-flex topper
+                            align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center
+                                align-items-center"><span class="icon-phone2"></span></div>
+                            <span class="text">+84 3535 90632</span>
+                        </div>
+                        <div class="col-md-2 pr-6 d-flex topper
+                            align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center
+                                align-items-center"><span class="icon-paper-plane"></span></div>
+                            <span class="text">vdhieu.19it1@vku.udn.com</span>
+                        </div>
+                        <div class="col-md-2 pr-6 d-flex topper
+                            align-items-center text-lg-right">
+
+                        </div>
+                        <div class="col-md-4 align-items-center text-lg-right">
+                            <% if session[:user_id] %>   
+                                 <% if @users.role == "admin"%>  
+                                <img src='./public/img/avatar/$avatar' style='border:2px solid #000;' width='30px' class='rounded-circle'>
+                                    <a href='/Admin/dashboard'><%= @users.fullname %></a></span>
+                                <% else %>
+                                    <span style='color:#000'>Xin chào:<img src='img/avatar/<%= @users.avatar%>' style='border:2px solid #000;' width='30px' class='rounded-circle'><a href='/Edit'><%= @users.fullname %> </a></span>
+                                <% end %>
+                                    <a href='' ><%= link_to "Đăng Xuất", logout_path,class:"btn-danger",style:"margin-left:10px", method: :delete %></a>   
+                                <% else %>
+                                <a href='/register' class='btn-primary' >Đăng ký</a>
+                               <a href='/login' class='btn-success' style='margin-left:10px'>Đăng nhập</a>
+                        <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="/">
+                                        <img src="/img/logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a class="active" href="/">Trang chủ</a></li>
+                                            <li><a href="/About">Về chúng tôi</a></li>
+                                            <li><a href="/Places">Địa điểm</a></li>
+                                            <li><a href="/Blog">blog</a>
+                                                <!-- <ul class="submenu">
+                                                    <li><a href="blog.html">blog</a></li>
+                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                </ul> -->
+                                            </li>
+                                            <li><a href="/Contact">Liên hệ</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                                <div class="social_wrap d-flex
+                                    align-items-center justify-content-end">
+                                    <div class="number">
+                                       
+                                    </div>
+                                    <div class="social_links d-none d-xl-block">
+                                        <ul>
+                                    <li><a href="/Giohang/<%= @users.id%>"><i class="fa fa-shopping-cart">[<span style="color: red;"><%= @sl%></span>]</i></a></li>
+
+                                            <li><a href="https://www.instagram.com/hieuduy22/" target="_blank">
+                                                 <%= fa_icon "instagram" %>                                               
+                                                </a></li>
+                                            <li><a href="https://www.facebook.com/hieuks2001" target="_blank">
+                                                 <%= fa_icon "facebook" %>      
+                                                </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="mobile_menu d-block
+                                                d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>

@@ -1,0 +1,357 @@
+
+<div class="popular_destination_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb_70">
+                    <h3>Những địa điểm đang hot !!!</h3>
+                    <p>Khám phá ngay.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+             <% @diadiems.each do |diadiem| %>   
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="/img/place/<%= diadiem.anh%>" alt="" style="height: 250px;">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center"><%= diadiem.name%><a style="font-size: 14px;" href=""><%= diadiem.name%></a></p>
+                        </div>
+                    </div>
+                </div>
+             <% end %>    
+        </div>
+
+    </div>
+</div>
+
+<div class="newletter_area overlay">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="newsletter_text">
+                            <h4>Bạn muốn cập nhật những thông tin mới nhất về Tây Bắc !?</h4>
+                            <p>Đăng ký gmail ngay !!! </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="mail_form" method="Post">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="newsletter_field">
+                                        <input type="email" placeholder="Gmail của bạn" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="newsletter_btn">
+                                        <button class="boxed-btn4 " type="submit" name="re-gmail">Chấp nhận</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- newletter_area_end  -->
+
+<!-- <div class="popular_places_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb_70">
+                    <h3>Những địa điểm phổ biến !!!</h3>
+                    <p>Trải nghiệm cuộc sống hòa mình với với núi rừng Tây Bắc.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">                            
+                        <img src="/img/place/2.png" class="img_single_trip" alt="" style="height:233px;">
+                        
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Mù cang chải</h3></a>
+                        <p>Yên Bái</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/img/place/1.png" alt="" style="height:233px;">
+                        
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Sapa</h3></a>
+                        <p>Lào Cai</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/img/place/3.png" alt="">
+                        
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Thung lũng Mận</h3></a>
+                        <p>Mộc Châu - Sơn La</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/img/place/4.png" alt="" >
+                        
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Đồi chè</h3></a>
+                        <p>Mộc Châu - Sơn La</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/img/place/5.png" alt="" style="height:233px;">
+                        
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Đèo Ô Quy Hồ</h3></a>
+                        <p>Lào Cai</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/img/place/6.png" alt="" style="height:233px;">
+                        
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Hồ Thác Bà</h3></a>
+                        <p>Yên Bái</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="more_place_btn text-center">
+                    <a class="boxed-btn4" href="travel_destination.php">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="video_area video_bg overlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="video_wrap text-center">
+                    <h3>Video Đặc Sắc</h3>
+                    <div class="video_icon">
+                        <a class="popup-video video_play_button" href="https://www.youtube.com/watch?v=UkGJerqkczM">
+                        <%= fa_icon "play" %>
+                            <%# <i class="fa fa-play"></i> %>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="travel_variation_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="/img/svg_icon/1.svg" alt="">
+                    </div>
+                    <h3>Tận hưởng</h3>
+                    <p>Trên những cung đường quanh co uốn lượn.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="/img/svg_icon/2.svg" alt="">
+                    </div>
+                    <h3>Nghỉ ngơi</h3>
+                    <p>Trong những khách sạn sang trọng với view thiên nhiên cực đẹp.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="/img/svg_icon/3.svg" alt="">
+                    </div>
+                    <h3>Hướng dẫn viên du lịch</h3>
+                    <p>Có trình độ và kinh nghiệm 3 năm trở lên.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- testimonial_area  -->
+<div class="testimonial_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="testmonial_active owl-carousel">
+                     <% @cmts.each do |cmt| %>   
+                        <div class="single_carousel">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class=" text-center">
+                                        <img src="/img/avatar/0.png" style='border:1px solid #000; height:100px;' class='rounded-circle'>
+                                        <p><%= cmt.noidung%></p>
+                                        <div class="testmonial_author">
+                                            <h3><%= cmt.username%></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /testimonial_area  -->
+
+<div class="section-top-border container">
+    <h3>Thư viện ảnh</h3>
+    <div class="row gallery-item">
+        <div class="col-md-4">
+            <a href="/img/trip/1.jpg" class="img-pop-up">
+                <div class="single-gallery-image" style="background: url(img/trip/1.jpg);"></div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/img/trip/2.jpg" class="img-pop-up">
+                <div class="single-gallery-image" style="background: url(img/trip/2.jpg);"></div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/img/trip/3.jpg" class="img-pop-up">
+                <div class="single-gallery-image" style="background: url(/img/trip/3.jpg);"></div>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="/img/trip/4.jpg" class="img-pop-up">
+                <div class="single-gallery-image" style="background: url(/img/trip/4.jpg);"></div>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="/img/trip/5.png" class="img-pop-up">
+                <div class="single-gallery-image" style="background: url(/img/trip/5.png);"></div>
+            </a>
+        </div>
+    </div>
+    <div id="demo" class="row gallery-item"> </div>
+    <p id="btnajax"> <button type="button" class="genric-btn primary-border radius" onclick="loadDoc()">Xem thêm</button></p>
+</div>

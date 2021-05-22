@@ -1,0 +1,174 @@
+
+
+
+<div class="popular_places_area">
+    <div class="container">
+        <div class="row">
+<%= stylesheet_link_tag 'pagination' %>
+
+<div class="col-lg-3">
+    <div class="filter_result_wrap">
+        <h3 style="font-size: 3em;">Tìm kiếm</h3>
+        <form class="form-group" autocomplete="off" method="GET" enctype="multipart/form-data">
+            <div class="filter_inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="single_select">
+                            <select style="font-size: 2em;" name="tinh">
+                                <option value="" .selected >Tất cả</option>                              
+
+                                 <% @tinh.each do |tinh| %>   
+                                   <option value="<%= tinh.namecity%>" .selected ><%= tinh.namecity %></option>                               
+                              <% end %>    
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" name="timkiem" value="Tìm kiếm" style="margin-top:5px" class="boxed-btn4">
+        </form>
+    </div>
+</div>
+<div class="col-lg-9">
+    <div class="row">
+        <% @diadiems.each do |diadiem| %>   
+
+            <div class="col-lg-6 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="img/place/<%= diadiem.anh%>" alt="" style="height: 250px;">
+                    </div>
+                    <div class="place_info">
+                     
+                        <h3><a href="Places/Hotel/<%= diadiem.id %>"><%= diadiem.name%></a></h3>                       
+                        </a>
+                        <p><%= diadiem.nametinh %></p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+
+                            </span>
+                            <!-- <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+     <% end %>   
+    </div>
+    <div class="row mt-5">
+        <div class="col text-center">
+            <div class="block-27">
+                <div class="apple_pagination">                      
+                       
+                        <%= will_paginate @diadiems, :container => false %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+          
+        </div>
+    </div>
+</div>
+
+<!-- newletter_area_start  -->
+<div class="newletter_area overlay">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="newsletter_text">
+                            <h4>Subscribe Our Newsletter</h4>
+                            <p>Subscribe newsletter to get offers and about
+                                new places to discover.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mail_form">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="newsletter_field">
+                                        <input type="email" placeholder="Your mail">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="newsletter_btn">
+                                        <button class="boxed-btn4 " type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog in here -->
+<div class="recent_trip_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb_70">
+                    <h3>Blog gần đây</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/img/trip/3.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>July 12, 2020</span>
+                        </div>
+                        <a href="single-blog.html">
+                            <h3>Cuộc sống của người dân Tây Bắc như thế nào?</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/img/trip/2.jpg" alt="" style=" height: 233px;">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>Oct 12, 2019</span>
+                        </div>
+                        <a href="single-blog.html">
+                            <h3>Mùa gặt lúa trên Mù Cang Chải</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/img/trip/8.png" style="height: 233px;">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>Oct 12, 2019</span>
+                        </div>
+                        <a href="single-blog.html">
+                            <h3>Tour du lịch trên thuyền Hồ Thác Bà 3 ngày 2 đêm</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
